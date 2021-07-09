@@ -1,0 +1,19 @@
+set graph object;
+set visited to empty dictionary;
+
+procedure depthFirst(vertex)
+   set s to empty stack;
+   
+   for each currentVertex in graph do
+      set visited[currentVertex] to false;
+
+   push vertex onto s;
+   
+   while s is not empty do
+      set u to pop s;
+
+      if not visited[u] then
+         set visited[u] to True;
+            for each neighbour neighbor of u do
+               if not visited[neighbor] then
+                  push neighbor onto s;
